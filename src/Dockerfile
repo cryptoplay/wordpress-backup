@@ -1,8 +1,8 @@
-ROM alpine:edge
+FROM alpine:edge
 MAINTAINER CryptoPlay <docker@cryptoplay.tk>
 
 RUN apk add --no-cache && \
-    mysql-client cron bzip2 && \
+    bash mysql-client cron bzip2 && \
     rm -rf /var/cache/apk/* && \
     mkdir /backups
 
