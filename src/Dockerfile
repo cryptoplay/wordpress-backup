@@ -1,11 +1,9 @@
-FROM ubuntu
+ROM alpine:edge
+MAINTAINER CryptoPlay <docker@cryptoplay.tk>
 
-MAINTAINER Angelo Veltens <angelo.veltens@online.de>
-
-RUN apt-get update && \
-    apt-get install mysql-client cron bzip2 -y && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/* && \
+RUN apk add --no-cache && \
+    mysql-client cron bzip2 && \
+    rm -rf /var/cache/apk/* && \
     mkdir /backups
 
 ENV BACKUP_TIME 0 3 * * *
